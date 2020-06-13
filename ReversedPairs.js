@@ -30,6 +30,7 @@ const topBottomMerge = {
       else if (j > hi) arr[k] = aux[i++];
       else if (aux[j] < aux[i]) {
         arr[k] = aux[j++]
+        // 和左区间剩下的所有构成逆序对
         this.count += (mid - i + 1)
       }
       else {
@@ -49,9 +50,8 @@ const topBottomMerge = {
     this.count = 0;
     this.aux = arr.slice()
     this.sortf(arr, 0, Math.floor(len - 1 / 2), len - 1)
-    console.log(this.count)
   }
 }
 
 topBottomMerge.sort(c)
-console.log(c, c.length)
+console.log(c, c.length, c.count)
