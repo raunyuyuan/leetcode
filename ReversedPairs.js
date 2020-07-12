@@ -1,4 +1,3 @@
-
 const d = [
   12,
   1334,
@@ -14,13 +13,16 @@ const d = [
   6,
   12
 ]
-const c = [7,5,6,4]
+const c = [7, 5, 6, 4]
 const topBottomMerge = {
   aux: [],
   count: 0,
   merge(arr, lo, mid, hi) {
-    const {aux} = this
-    let i = lo, j = mid + 1
+    const {
+      aux
+    } = this
+    let i = lo,
+      j = mid + 1
     for (let k = lo; k <= hi; k++) {
       aux[k] = arr[k]
     }
@@ -32,15 +34,14 @@ const topBottomMerge = {
         arr[k] = aux[j++]
         // 和左区间剩下的所有构成逆序对
         this.count += (mid - i + 1)
-      }
-      else {
+      } else {
         arr[k] = aux[i++]
       }
     }
   },
   sortf(arr, lo, hi) {
     if (hi <= lo) return
-    const mid = lo + Math.floor((hi - lo) /2)
+    const mid = lo + Math.floor((hi - lo) / 2)
     this.sortf(arr, lo, mid)
     this.sortf(arr, mid + 1, hi)
     this.merge(arr, lo, mid, hi)
